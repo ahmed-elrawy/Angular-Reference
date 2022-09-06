@@ -1,0 +1,30 @@
+
+<h2>Two way data binding</h2>
+<button [disabled]="!value1">button</button>
+<input [class.blue]="value1" type="text" (input)="handleInput($event)" />
+<p >You entered {{value1}}</p>
+
+<input [class]="{a:value2, b: !value2}" (keyup)="value2=$any($event.target).value" />
+<p [style.color]="'red'"> binding style {{value2}}</p>
+<p [style.color]="value2?'red':'blue'">conditional stayle {{value2}}</p>
+
+<hr>
+
+<h2>Banana in A Box</h2>
+<input [(ngModel)]="bananaInABox" />
+<p >  {{bananaInABox}}</p>
+
+<hr>
+ 
+<h2> ngModelChange</h2>
+<input [ngModel]="ngModelChange" (ngModelChange)="ngModelChange= $event" />
+<p >  {{ngModelChange}}</p>
+
+
+<h3>data binding type</h3>
+<img [src]="imgURL" alt="">
+<img src="{{imgURL}}" alt="">
+<img bind-src="imgURL" alt="">
+
+
+<hr>
